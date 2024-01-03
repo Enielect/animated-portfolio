@@ -1,18 +1,20 @@
-import Test from "./Test";
+import "./app.scss";
+import Hero from "./components/Hero/Hero";
+import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
-// import './app.scss'
 
 const App = () => {
   return (
     <div>
-      {/* <section>home</section>
-    <section>services</section>
-    <section>about</section>
-    <section>form</section>
-    <section>svg</section> */}
-
-      {/* <Test /> */}
-      <Sidebar />
+      <section className="section">
+        <Navbar />
+        <Hero />
+        <Sidebar />
+      </section>
+      <section className="section">services</section>
+      <section className="section">about</section>
+      <section className="section"> form</section>
+      <section className="section"> svg</section>
     </div>
   );
 };
