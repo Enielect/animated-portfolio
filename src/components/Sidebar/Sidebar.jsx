@@ -2,8 +2,6 @@ import { useState } from "react";
 import "./sidebar.scss";
 import { motion } from "framer-motion";
 
-
-
 const variant = {
   open: {
     clipPath: "circle(1200px at 50px 50px)",
@@ -26,7 +24,7 @@ const variant = {
 const ulVariants = {
   open: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.1,
     },
   },
   closed: {
@@ -43,7 +41,7 @@ const itemVariants = {
     y: 0,
     transition: {
       type: "spring",
-      delay: 0.5,
+      delay: 0.4,
       stiffness: 300,
       damping: 24,
     },
@@ -57,6 +55,7 @@ const itemVariants = {
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const ListItems = ["Home", "Portfollio", "Services", "Contact"];
   return (
     <motion.div
       className="sidebar"
@@ -94,38 +93,18 @@ function Sidebar() {
           />
         </motion.svg>
       </button>
-      <motion.ul
-        className="item-list"
-       variants={ulVariants}
-      >
-        <motion.li
-          whileHover={{ scale: 1.2 }}
-          className="item"
-          variants={itemVariants}
-        >
-          Home
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.2 }}
-          className="item"
-          variants={itemVariants}
-        >
-          Portfollio
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.2 }}
-          className="item"
-          variants={itemVariants}
-        >
-          Services
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.2 }}
-          className="item"
-          variants={itemVariants}
-        >
-          Contact
-        </motion.li>
+      <motion.ul className="item-list" variants={ulVariants}>
+        {ListItems.map((item, i) => (
+          <motion.li
+            whileHover={{ scale: 1.2 }}
+            className="item"
+            whileTap={{ scale: 0.9 }}
+            variants={itemVariants}
+            key={i}
+          >
+            {item}
+          </motion.li>
+        ))}
       </motion.ul>
     </motion.div>
   );
