@@ -1,10 +1,13 @@
 .hero {
-  max-width: 1100px;
+  background: linear-gradient(180deg, #0c0c1d, #111132);
+  padding-inline: 8vw;
   margin: auto;
+  position: relative; //this and the one below are absolute gems and seem like work hand in hand
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   .first {
-      width: 600px;
+    width: 600px;
     span {
       color: blue;
       font-size: 30px;
@@ -19,16 +22,49 @@
     }
 
     .buttons {
-        
-        button {
-            border: 1px solid white;
-            padding: 15px;
-            color: white;
-            background: transparent;
-            margin-right: 20px;
-            border-radius: 7px;
+      button {
+        position: relative;
+        border: 1px solid white;
+        padding: 15px;
+        color: white;
+        background: transparent;
+        margin-right: 20px;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        z-index: 999;
+        &:hover {
+          color: black;
+          cursor: pointer;
+
+          &::before {
+            left: 0;
+            opacity: 1;
+          }
         }
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          opacity: 0;
+          background-color: white;
+          transition: all 0.3s ease-in-out;
+          z-index: -1;
+        }
+      }
     }
+  }
+  .animated-text {
+    position: absolute;
+    font-size: 50vh;
+    width: 50%;
+    white-space: nowrap;
+    bottom: -90px;
+    color: #ffffff09;
   }
 
   .image {
