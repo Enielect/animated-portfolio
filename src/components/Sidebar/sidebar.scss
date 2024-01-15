@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
 
 .sidebar {
+  z-index: 10;
   width: 400px;
   position: fixed;
   background: white;
@@ -36,5 +37,15 @@
     cursor: pointer;
     left: 1.5rem;
     background: transparent;
+
+    // why do i have to manually adjust this lines to make them 
+    // centered, i thought the place-items: center was supposed to 
+    // do the job
+
+    .svg {
+      position: relative;
+      left: 8px;
+      top: 10px;
+    }
   }
 }

@@ -63,7 +63,7 @@ function Sidebar() {
       variants={variant}
     >
       <button className="button" onClick={() => setIsOpen((c) => !c)}>
-        <motion.svg width="23" height="23" viewBox="0 0 23 23">
+        <motion.svg width="23" height="23" viewBox="0 0 23 23" className='svg'>
           <motion.path
             strokeWidth="3"
             stroke="black "
